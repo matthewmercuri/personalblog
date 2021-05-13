@@ -1,5 +1,11 @@
+import Head from 'next/head'
+
 export default function about () {
   return (
-    <div />
+    <div>
+      <Head>
+        <title>matthew mercuri - about</title>
+      </Head>
+    </div>
   )
 }

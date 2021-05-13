@@ -17,6 +17,7 @@
 .welcome h5 {
     font-weight: normal;
     font-size: 1.1rem;
+    line-height: 1.45;
     width: 60%;
     margin-top: 10px;
 }
