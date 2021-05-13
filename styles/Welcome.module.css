@@ -1,0 +1,33 @@
+.welcome {
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome h1 {
+    font-size: 2.5rem;
+    margin-top: 10px;
+}
+
+.welcome h3 {
+    font-size: 1.25rem;
+    color: #0D21A1;
+    margin-top: 10px;
+}
+
+.welcome h5 {
+    font-weight: normal;
+    font-size: 1.1rem;
+    width: 60%;
+    margin-top: 10px;
+}
+
+.socials img {
+    height: 40px;
+    margin: 15px 10px 0px 0px
+}
+
+@media only screen and (max-width: 750px) {
+    .welcome h5 {
+        width: 100%;
+    }
+}
