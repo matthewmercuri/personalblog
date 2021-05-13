@@ -4,8 +4,9 @@ export default function blog () {
   return (
     <div>
       <Head>
-        <title>matthew mercuri - blog</title>
+        <title>blog | matthew mercuri</title>
       </Head>
+      <h1>Blog</h1>
     </div>
   )
 }

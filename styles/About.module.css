@@ -1,0 +1,27 @@
+.about ul {
+    list-style: none;
+}
+
+.about span {
+    font-weight: bold;
+    color: #0D21A1;
+}
+
+.about {
+    width: 75%;
+}
+
+.about img {
+    height: 40px;
+    margin: 15px 10px 0px 0px
+}
+
+.about a {
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 750px) {
+    .about {
+        width: 100%;
+    }
+}

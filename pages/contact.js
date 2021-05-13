@@ -4,8 +4,9 @@ export default function contact () {
   return (
     <div>
       <Head>
-        <title>matthew mercuri - contact</title>
+        <title>contact | matthew mercuri</title>
       </Head>
+      <h1>Contact</h1>
     </div>
   )
 }
