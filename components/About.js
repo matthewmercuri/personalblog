@@ -17,6 +17,9 @@ export default function About () {
       <p>If you have any suggestions or inquiries please feel free to get in touch with me through my <Link href='/contact'><a><span>contact</span></a></Link> form.</p>
       <a href='https://www.linkedin.com/in/matthew-mercuri/'><img src='/social/linkedinlogo.svg' alt='link to linkedin' /></a>
       <a href='https://github.com/matthewmercuri'><img src='/social/githublogo.svg' alt='link to github' /></a>
+      <p className={styles.disclaimer}>Please note that anything I share here should not be considered financial advice. Should you require advice, speak to
+        an accredited financial professional.
+      </p>
     </div>
   )
 }
