@@ -4,10 +4,23 @@ export default function ContactForm () {
   return (
     <div className={styles.contactForm}>
       <h4>Please fill out this form if you have any questions, suggestions, or business inquiries.</h4>
-      <form name='contactForm'>
-        <label>Name:
-          <input name='senderName' />
-        </label>
+      <form name='contactForm' method='post' data-netlify-recaptcha='true' netlify-honeypot='bot-field' data-netlify='true'>
+        <p class={styles.hidden}>
+          <label>Don’t fill this out if you’re human: <input name='bot-field' /></label>
+        </p>
+        <p>
+          <label>Your Name: <input type='text' name='senderName' placeholder='name' maxLength='35' required /></label>
+        </p>
+        <p>
+          <label>Your Email: <input type='email' name='senderEmail' placeholder='email' maxLength='35' required /></label>
+        </p>
+        <p>
+          <label>Message: <textarea name='message' placeholder='type your message here...' maxLength='750' required /></label>
+        </p>
+        <div data-netlify-recaptcha='true' />
+        <p>
+          <button name='submitButton' type='submit'>Send</button>
+        </p>
       </form>
     </div>
   )

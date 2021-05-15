@@ -1,6 +1,11 @@
 .contactForm {
     display: flex;
     flex-direction: column;
+    background-color: #011638;
+    width: 70%;
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 5px;
 }
 
 .contactForm h4 {
@@ -8,6 +13,81 @@
     font-weight: normal;
     margin: 18px 0;
     width: 75%;
+    color: #EEF0F2;
+}
+
+.contactForm p {
+    margin-top: 10px;
+    color: #EEF0F2;
+}
+
+.contactForm label {
+    display: flex;
+    flex-direction: column;
+}
+
+.contactForm input, .contactForm textarea {
+    width: 75%;
+    border: none;
+    background-color: #EEF0F2;
+    height: 35px;
+    border-radius: 5px;
+    margin: 3px;
+    padding: 5px 12px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contactForm textarea:focus, .contactForm input:focus{
+    outline: none;
+}
+
+.contactForm ::placeholder {
+    color: rgb(161, 161, 161);
+}
+
+.contactForm textarea {
+    width: 75%;
+    height: 220px;
+    resize: none;
+}
+
+.contactForm button {
+    background-color: #0D21A1;
+    border: none;
+    font-size: 18px;
+    color: #EEF0F2;
+    text-align: center;
+    border-radius: 5px;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contactForm button:hover {
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+@media only screen and (max-width: 1250px) {
+    .contactForm {
+        width: 80%;
+    }
+
+    .contactForm h4 {
+        width: 90%;
+        margin: 10px 0;
+    }
+
+    .contactForm input, .contactForm textarea {
+        width: 75%;
+    }
 }
 
 @media only screen and (max-width: 750px) {
@@ -18,5 +98,9 @@
     .contactForm h4 {
         width: 100%;
         margin: 10px 0;
+    }
+
+    .contactForm input, .contactForm textarea {
+        width: 95%;
     }
 }
