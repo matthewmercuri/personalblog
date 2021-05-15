@@ -8,7 +8,7 @@ export default function About () {
         here that I will showcase some of my projects, research, and learning.
       </p>
       <p>What you can expect to see is stuff related to quantitative finance, data science, probability and statistics, and
-        computational methods. There may even be posts about full-stack development.
+        computational methods. There may even be posts about full-stack web development.
       </p>
       <p>I decided to create this website as I feel it is a good motivator to continue learning and developing my skills. Of course, there is the added benefit of potentially helping
         people with similar interests to mine. With that being said, I hope that some of my posts are interesting or useful.
