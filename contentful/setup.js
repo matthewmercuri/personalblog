@@ -1,9 +1,23 @@
 const contentful = require('contentful')
-const client = contentful.createClient({
-  // This is the space ID. A space is like a project folder in Contentful terms
-  space: 'rykbp4limxog',
-  // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
-  accessToken: 'Sx5P_RcU_PX9X1ff_DykJ0vnfE90rN_O5YdEfvo8iNs'
-})
 
-export default client
+// change api key and swawp credential variable when done
+const credentials = {
+  accessToken: 'Sx5P_RcU_PX9X1ff_DykJ0vnfE90rN_O5YdEfvo8iNs',
+  space: 'rykbp4limxog'
+}
+// const credentials = {
+//   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+//   space: process.env.CONTENTFUL_SPACE_ID
+// }
+const client = contentful.createClient(credentials)
+
+// export default client
+
+export async function fetchEntries () {
+  const entries = await client.getEntries()
+
+  if (entries.items) return entries.items
+  console.log('Error getting Entries')
+}
+
+export default { fetchEntries }
