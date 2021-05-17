@@ -1,5 +1,5 @@
 // import Image from 'next/image'
-import Link from 'next/link'
+// import Link from 'next/link'
 import style from './blogstyles/PostCard.module.css'
 
 export default function PostCard ({ post }) {
@@ -17,7 +17,8 @@ export default function PostCard ({ post }) {
           <h3 key={cat}>{cat}</h3>
         )}
       </div>
-      <h1><Link href={`/blog/post/${encodeURI(articleSlug)}`}><a>{post.fields.blogTitle}</a></Link></h1>
+      {/* <h1><Link href={`/blog/post/${encodeURI(articleSlug)}`}><a>{post.fields.blogTitle}</a></Link></h1> */}
+      <h1><a href={`/blog/post/${encodeURI(articleSlug)}`}>{post.fields.blogTitle}</a></h1>
     </div>
   )
 }
