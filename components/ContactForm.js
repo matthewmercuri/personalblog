@@ -4,7 +4,7 @@ export default function ContactForm () {
   return (
     <div className={styles.contactForm}>
       <h4>Please fill out this form if you have any questions, suggestions, or business inquiries.</h4>
-      <form name='contactForm' method='post' data-netlify-recaptcha='true' netlify-honeypot='bot-field' data-netlify='true'>
+      <form name='contactForm' method='POST' action='/success' data-netlify-recaptcha='true' netlify-honeypot='bot-field' data-netlify='true'>
         <p class={styles.hidden}>
           <label>Don’t fill this out if you’re human: <input name='bot-field' /></label>
         </p>
