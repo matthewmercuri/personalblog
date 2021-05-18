@@ -8,9 +8,7 @@ export default function ContactForm () {
         <p class={styles.hidden}>
           <label>Don’t fill this out if you’re human: <input name='bot-field' /></label>
         </p>
-        <p class={styles.hidden}>
-          <label><input name='form-name' /></label>
-        </p>
+        <input type='hidden' name='form-name' />
         <p>
           <label>Your Name: <input type='text' name='senderName' placeholder='name' maxLength='35' required /></label>
         </p>
