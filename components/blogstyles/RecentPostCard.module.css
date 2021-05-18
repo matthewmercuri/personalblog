@@ -3,7 +3,7 @@
 }
 
 .recentPostCard h1 {
-    font-size: 1.8rem;
+    font-size: 1.66rem;
     margin: 8px 0px
 }
 
@@ -11,4 +11,20 @@
     text-decoration: none;
     color: #0D21A1;
     font-family: 'Montserrat', sans-serif;
+}
+
+@media only screen and (max-width: 1250px) {
+    .recentPostCard {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .recentPostCard {
+        width: 100%;
+    }
+
+    .recentPostCard h1 {
+        font-size: 1.3rem;
+    }
 }
