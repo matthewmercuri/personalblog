@@ -1,0 +1,14 @@
+.recentPostCard {
+    width: 75%;
+}
+
+.recentPostCard h1 {
+    font-size: 1.8rem;
+    margin: 8px 0px
+}
+
+.recentPostCard a {
+    text-decoration: none;
+    color: #0D21A1;
+    font-family: 'Montserrat', sans-serif;
+}
