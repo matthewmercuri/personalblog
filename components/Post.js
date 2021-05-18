@@ -22,7 +22,7 @@ export default function Post ({ post }) {
             <h3 className={style.cat} key={cat}>{cat}</h3>
           )}
         </div>
-        <div className={style.featureImage}><img src={`https:${post.fields.blogFeatureImage.fields.file.url}`} alt='blog featured image' /></div>
+        <img className={style.featureImage} src={`https:${post.fields.blogFeatureImage.fields.file.url}`} alt='blog featured image' />
         <div
           className={style.bbody}
           dangerouslySetInnerHTML={{
