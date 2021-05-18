@@ -58,6 +58,15 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.cat {
+    background-color: rgb(224, 224, 224);
+    padding: 2px 5px;
+    margin: 1px;
+    border-radius: 3px;
 }
 
 @media only screen and (max-width: 1250px) {

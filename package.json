@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "contentful": "^8.3.5",
-    "dompurify": "^2.2.8",
     "marked": "^2.0.3",
     "next": "10.2.0",
     "next-share": "^0.4.0",
