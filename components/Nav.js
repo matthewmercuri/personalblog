@@ -10,7 +10,7 @@ export default function Nav () {
   return (
     <nav className={styles.mainNav}>
       <div className={styles.regNav}>
-        <img className={styles.logo} src='/baselogo.svg' alt='logo' />
+        <Link href='/'><a><img className={styles.logo} src='/baselogo.svg' alt='logo' /></a></Link>
         <ul>
           <li><Link href='/'><a>home</a></Link></li>
           <li><Link href='/blog'><a>blog</a></Link></li>
@@ -20,7 +20,7 @@ export default function Nav () {
       </div>
       <div className={click ? `${styles.mobileNavOpen} ${styles.mobileNav}` : styles.mobileNav}>
         <div className={styles.topMobileNav}>
-          <img className={styles.mobileLogo} src='/baselogoinv.svg' />
+          <Link href='/'><a><img className={styles.logo} src='/baselogoinv.svg' alt='logo' /></a></Link>
           <img className={click ? styles.menuOpen : styles.menu} onClick={handleClick} src='/menu.svg' alt='burger-menu' />
           <img className={click ? styles.close : styles.hideClose} onClick={closeMobileMenu} src='/x.svg' alt='burger-menu-close' />
         </div>
