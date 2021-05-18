@@ -2,7 +2,7 @@
 // import Link from 'next/link'
 import style from './blogstyles/PostCard.module.css'
 
-export default function PostCard ({ post }) {
+export default function PostCard ({ key, post }) {
   const articleSlug = post.fields.blogSlug
   return (
     <div className={style.postCard}>

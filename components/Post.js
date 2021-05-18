@@ -10,6 +10,17 @@ export default function Post ({ post }) {
       </Head>
       <div className={style.post}>
         <h1>{post.fields.blogTitle}</h1>
+        <div className={style.info}>
+          <img src='/icons/bxs-calendar.svg' alt='calendar icon' />
+          <h3>{post.fields.blogDate}</h3>
+          <img className={style.hide} src='/icons/bxs-user-circle.svg' alt='author icon' />
+          <h3 className={style.hide}>{post.fields.blogAuthor}</h3>
+          <img src='/icons/bxs-purchase-tag.svg' alt='category icon' />
+          {post.fields.blogCategory.map(cat =>
+            <h3 key={cat}>{cat}</h3>
+          )}
+        </div>
+        <div className={style.featureImage}><img src={`https:${post.fields.blogFeatureImage.fields.file.url}`} alt='blog featured image' /></div>
         <div
           dangerouslySetInnerHTML={{
             __html: marked(post.fields.blogBody)
