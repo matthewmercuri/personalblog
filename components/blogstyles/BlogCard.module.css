@@ -1,0 +1,8 @@
+.blogcard {
+    display: flex;
+    width: 70%;
+}
+
+.blogcard h2 {
+    color: #0D21A1;
+}

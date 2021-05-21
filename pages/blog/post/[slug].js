@@ -1,60 +1,69 @@
-import fs from 'fs'
+// import { readdirSync, readFileSync } from 'fs'
+import { join, resolve } from 'path'
 import matter from 'gray-matter'
-import { MDXRemote } from 'next-mdx-remote'
-import { serialize } from 'next-mdx-remote/serialize'
-import dynamic from 'next/dynamic'
-import Head from 'next/head'
-import Link from 'next/link'
-import path from 'path'
-import { postFilePaths, POSTS_PATH } from '../../../utils/mdxUtils'
+import { readdirSync, readFileSync } from 'fs'
 
-export default function PostPage({ source, frontMatter }) {
+export default function PostPage ({ params }) {
   return (
-    <>
-    <Link href="/">
-      <a>👈 Go back home</a>
-    </Link>
-    <div>
-      <h1>{frontMatter.title}</h1>
-      <p>{frontMatter.description}</p>
-    </div>
-    <main>
-      <MDXRemote {...source} />
-    </main>
-    </>
+    <p>{params.slug}</p>
   )
 }
 
+// export const getStaticProps = async ({ params }) => {
+//   const path = join(process.cwd(), 'posts')
+//   const files = readdirSync(path).map((f) =>
+//     join(path, f))
+//   const sources = files.map(file =>
+//     matter(readFileSync(file)))
+//   console.log(sources)
+//   //   console.log(path)
+//   //   console.log(files)
+
+//   //   const files = readdirSync(paths)
+//   //   const slugs = files.map((file) =>
+//   //     matter(readFileSync(file))
+//   //   )
+//   //   console.log(paths)
+//   //   console.log(files)
+//   //   console.log(slugs)
+//   return {
+//     props: {
+//       source: 'hello'
+//     }
+//   }
+// }
+
 export const getStaticProps = async ({ params }) => {
-  const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`)
-  const source = fs.readFileSync(postFilePath)
-
-  const { content, data } = matter(source)
-
-  const mdxSource = await serialize(content, {
-    // Optionally pass remark/rehype plugins
-    mdxOptions: {
-      remarkPlugins: [],
-      rehypePlugins: [],
-    },
-    scope: data,
-  })
+  const path = join(process.cwd(), 'posts')
+  const files = readdirSync(path).map((f) =>
+    join(path, f))
 
   return {
     props: {
-      source: mdxSource,
-      frontMatter: data,
-    },
+      params
+    }
   }
 }
 
 export const getStaticPaths = async () => {
-  const paths = postFilePaths
-    .map((path) => path.replace(/\.mdx?$/, ''))
-    .map((slug) => ({ params: { slug } }))
+  const path = join(process.cwd(), 'posts')
+  const files = readdirSync(path).map((f) =>
+    join(path, f))
+  const sources = files.map(file =>
+    matter(readFileSync(file)))
+  const paths = sources.map((source) => ({
+    params: {
+      slug: source.data.title.toLowerCase()
+        .replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '')
+      // slug: encodeURI(source.data.title.toLowerCase())
+    }
+  })
+  )
+  console.log(paths)
 
   return {
     paths,
-    fallback: false,
+    fallback: false
   }
 }
