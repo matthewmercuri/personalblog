@@ -14,10 +14,6 @@ export default function blog ({ meta }) {
       <h1>Blog</h1>
       {meta.map((metadata) =>
         <BlogCard key={metadata.slug} path={metadata.slug} metadata={metadata} />)}
-      {/* {paths.map((path) =>
-        <h1 key={path.slug}>{path.slug}</h1>)}
-      {titles.map((title) =>
-        <h1 key={title}>{title}</h1>)} */}
     </div>
   )
 }
