@@ -1,0 +1,38 @@
+.post {
+    display: flex;
+    flex-direction: column;
+    width: 66%;
+}
+
+.post h1 {
+    color: #0d21a1;
+}
+
+.post p {
+    font-size: 1rem;
+    line-height: 1.75;
+    margin-top: 20px;
+}
+
+.hide {
+    display: none;
+}
+
+@media only screen and (max-width: 1500px) {
+    .post {
+        width: 75%;
+    }
+}
+
+
+@media only screen and (max-width: 1250px) {
+    .post {
+        width: 75%;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .post {
+        width: 100%;
+    }
+}
