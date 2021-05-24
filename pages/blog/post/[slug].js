@@ -5,7 +5,7 @@ import { readdirSync, readFileSync } from 'fs'
 import Post from '../../../components/Post'
 import { serialize } from 'next-mdx-remote/serialize'
 
-export default function PostPage ({ source, frontMatter}) {
+export default function PostPage ({ source, frontMatter }) {
   return (
     <>
       <Head>
@@ -42,7 +42,7 @@ export async function getStaticProps ({ params }) {
   ))
 
   const entry = meta.find((entry) => entry.slug === params.slug)
-  const {content, data} = matter(entry)
+  const { content, data } = matter(entry)
   const mdxSource = await serialize(content, {scope: data})
 
   return {

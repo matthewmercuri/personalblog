@@ -1,0 +1,39 @@
+import numpy as np
+import pandas as pd
+
+''' Reading data from csv obtained from the yahoo finance website '''
+msft_df = pd.read_csv('data/MSFT.csv', index_col=0)
+aapl_df = pd.read_csv('data/AAPL.csv', index_col=0)
+
+''' combining data into a portfolio and calculating its log return '''
+port_df = pd.concat([aapl_df['Adj Close'], msft_df['Adj Close']], axis=1)
+port_df['Value'] = port_df.sum(axis=1)
+port_df['Log_Return'] = (np.log(port_df['Value'])
+                         - np.log(port_df['Value'].shift(1)))
+
+
+''' the below function inputs the portfolio df and outputs the VaR '''
+def calculate_var(port_df=port_df):
+
+    ''' we will use three years worth of trading in our calc '''
+    days_to_consider = 3*252
+
+    ''' creating a vector of losses '''
+    _losses = port_df['Log_Return'].tail(days_to_consider)
+    losses = np.sort(np.array(_losses))
+
+    ''' finding 5% and 1% VaR '''
+    var_5 = np.percentile(losses, 5)
+    var_1 = np.percentile(losses, 1)
+
+    ''' finding var dollar amount '''
+    port_value = round(port_df['Value'].tail(1).iloc[0], 2)
+    dollar_var_5 = round(var_5 * port_value, 2)
+    dollar_var_1 = round(var_1 * port_value, 2)
+
+    ''' printing result '''
+    print(f'For a portfolio valued at ${port_value}, the 95% VaR is '
+          + f'${dollar_var_5} and the 99% VaR is ${dollar_var_1}.')
+
+
+calculate_var()

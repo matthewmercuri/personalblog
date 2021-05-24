@@ -35,4 +35,8 @@
     .post {
         width: 100%;
     }
+
+    .post h1 {
+        font-size: 1.75rem;
+    }
 }
