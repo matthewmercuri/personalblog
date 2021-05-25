@@ -4,7 +4,7 @@ import { tomorrow } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 // limitation of only being able to render python code
 // https://thetombomb.com/posts/adding-code-snippets-to-static-markdown-in-Next%20js
-const BlockCode = ({ children }) => {
+const CodeBlock = ({ children }) => {
   return (
     <SyntaxHighlighter
       language='python'
@@ -17,4 +17,4 @@ const BlockCode = ({ children }) => {
   )
 }
 
-export default BlockCode
+export default CodeBlock

@@ -4,11 +4,11 @@ import CustomImage from './CustomImage'
 import Math from './Math'
 import Link from 'next/link'
 import Share from './Share'
-import BlockCode from './BlockCode'
+import CodeBlock from './CodeBlock'
 
 import styles from './blogstyles/Post.module.css'
 
-const components = { Image, Link, CustomImage, Math, code: BlockCode }
+const components = { Image, Link, CustomImage, Math, code: CodeBlock }
 
 export default function Post ({ source, frontMatter }) {
   return (
