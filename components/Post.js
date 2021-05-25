@@ -1,36 +1,19 @@
-import Head from 'next/head'
-import style from './blogstyles/Post.module.css'
+import { MDXRemote } from 'next-mdx-remote'
+import Math from './Math'
+import Link from 'next/link'
 import Share from './Share'
-const marked = require('marked')
+import CodeBlock from './CodeBlock'
 
-export default function Post ({ post }) {
+import styles from './blogstyles/Post.module.css'
+
+const components = { Link, Math, code: CodeBlock }
+
+export default function Post ({ source, frontMatter }) {
   return (
-    <>
-      <Head>
-        <title>{post.fields.blogTitle}</title>
-      </Head>
-      <div className={style.post}>
-        <Share post={post} />
-        <h1>{post.fields.blogTitle}</h1>
-        <div className={style.info}>
-          <img className={style.hide} src='/icons/bxs-calendar.svg' alt='calendar icon' />
-          <h3 className={style.hide}>{post.fields.blogDate}</h3>
-          <img className={style.hide} src='/icons/bxs-user-circle.svg' alt='author icon' />
-          <h3 className={style.hide}>{post.fields.blogAuthor}</h3>
-          <img src='/icons/bxs-purchase-tag.svg' alt='category icon' />
-          {post.fields.blogCategory.map(cat =>
-            <h3 className={style.cat} key={cat}>{cat}</h3>
-          )}
-        </div>
-        <img className={style.featureImage} src={`https:${post.fields.blogFeatureImage.fields.file.url}`} alt='blog featured image' />
-        <div
-          className={style.bbody}
-          dangerouslySetInnerHTML={{
-            __html: marked(post.fields.blogBody)
-          }}
-        />
-        {/* <Share post={post} /> */}
-      </div>
-    </>
+    <div className={styles.post}>
+      <Share data={frontMatter} />
+      <h1>{frontMatter.title}</h1>
+      <MDXRemote {...source} components={components} />
+    </div>
   )
 }

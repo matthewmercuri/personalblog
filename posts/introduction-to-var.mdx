@@ -1,0 +1,73 @@
+---
+title: Explaining fundamental financial risk measures - Value at Risk (VaR)
+description: In finance, mathematics is primarily employed to describe returns. From this core concept, we can use math to understand losses. One of the most well-known measures is the so-called value at risk (VaR).
+author: Matthew Mercuri
+date: 14-05-2021
+category: Quantitative Finance
+featureImageName: varintro.png
+---
+
+In finance, mathematics is primarily employed to describe returns. From this core concept, we can use math to understand losses. As such, applied mathematicians develop risk measures that seek to offer some understanding of risk exposure to investors. One of the most well-known measures is the so-called [value at risk](https://en.wikipedia.org/wiki/Value_at_risk "Value at Risk Wiki Entry") (VaR). What follows in this post is an explanation of what VaR represents and how it should be interpreted. Later, I will show how you can program the measure for your own use.
+
+The mathematical expression for VaR is:
+
+<Math mathInput={'$\\textrm{VaR}_\\alpha(X)=\\textrm{-inf}\\{ x \\in R:F_X(x)>\\alpha \\}=F_Y^{-1}(1-\\alpha)$'} />
+
+This is interpreted to mean: there is an __alpha percent probability__ (usually 1% or 5%) that the portfolio would lose more than a certain dollar amount, known as the VaR, in a given time period.
+
+For instance, if a portfolio has a one-day 1% VaR of $100,000 on any given day, there is exactly a 1% chance that the portfolio __would lose more__ than $100,000. It is also equivalent to say something like “this portfolio is expected to lose more than $100,000 one time in a hundred trading days.”
+
+After understanding this, you can probably begin to see how an investor may find this to be useful. For example, if an investor had to choose between two portfolios with similar returns, he may choose the one with the lower VaR.
+There is a very notable limitation though, in that it __cannot tell you exactly how much you stand to lose on a day where the VaR is exceeded__. For this, there is another metric, called the conditional value at risk (CVaR) that can tell us more about that loss. That’s for another time though.
+
+In my opinion, the hardest hurdle to overcome in making VaR a meaningful metric comes from the fact it is defined through probability. For the VaR to be accurate, you __must know the distribution of returns for the portfolio__. Of course, this is exceedingly hard to know as we can only really estimate the distribution. This brings in a whole slew of other problems and the estimation error can lead us quickly askew. Therefore, the VaR is only as useful as the underlying assumptions of the return distribution allow.
+
+With this fact in mind, there are many methods that people use to calculate the VaR. Here, I will show the __historical method__ which just uses the real past returns of the portfolio. The advantage of this method is that it is simple to calculate as the VaR can be found by finding the __alpha percentile__ in the portfolio’s returns. We also make little assumptions about the distribution of returns. The only notable assumption is that we expect the distribution to be the same across time (which may or may not be reasonable). I may discuss other methods in the future.
+
+Finally, I will show how we can program this and make it useful to us. What follows is a python script that calculates the 1% and 5% VaR of a  portfolio. In this example, the portfolio just holds one share of Apple (AAPL) and one share of Microsoft (MSFT).
+
+What the script does is first read the returns of the prices of individual assets. Then it combines them and calculates a return series (stored in a pandas dataframe). The return series is the daily logarithmic return of the portfolio. Note, even here we have some discretion to use log returns instead of percent returns or dollar change. You might often see people use log returns as they are easier to manipulate mathematically in many cases. This portfolio dataframe then gets inputted into the VaR function which then outputs the VaR of the portfolio. The function is programmed in such a way that should be agnostic towards any portfolio so long as you pass a similar dataframe.
+
+<script src="https://gist.github.com/matthewmercuri/96e725463b78523393651196210dc467.js"></script>
+
+```python
+import numpy as np
+import pandas as pd
+
+''' Reading data from csv obtained from the yahoo finance website '''
+msft_df = pd.read_csv('data/MSFT.csv', index_col=0)
+aapl_df = pd.read_csv('data/AAPL.csv', index_col=0)
+
+''' combining data into a portfolio and calculating its log return '''
+port_df = pd.concat([aapl_df['Adj Close'], msft_df['Adj Close']], axis=1)
+port_df['Value'] = port_df.sum(axis=1)
+port_df['Log_Return'] = (np.log(port_df['Value'])
+                         - np.log(port_df['Value'].shift(1)))
+
+
+''' the below function inputs the portfolio df and outputs the VaR '''
+def calculate_var(port_df=port_df):
+
+    ''' we will use three years worth of trading in our calc '''
+    days_to_consider = 3*252
+
+    ''' creating a vector of losses '''
+    _losses = port_df['Log_Return'].tail(days_to_consider)
+    losses = np.sort(np.array(_losses))
+
+    ''' finding 5% and 1% VaR '''
+    var_5 = np.percentile(losses, 5)
+    var_1 = np.percentile(losses, 1)
+
+    ''' finding var dollar amount '''
+    port_value = round(port_df['Value'].tail(1).iloc[0], 2)
+    dollar_var_5 = round(var_5 * port_value, 2)
+    dollar_var_1 = round(var_1 * port_value, 2)
+
+    ''' printing result '''
+    print(f'For a portfolio valued at ${port_value}, the 95% VaR is '
+          + f'${dollar_var_5} and the 99% VaR is ${dollar_var_1}.')
+
+
+calculate_var()
+```

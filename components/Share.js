@@ -11,8 +11,11 @@ import {
 
 import styles from './blogstyles/Share.module.css'
 
-export default function Share ({ post }) {
-  const url = `https://www.matthewmercuri.com/blog/post/${post.fields.blogSlug}`
+export default function Share ({ data }) {
+  const slug = data.title.toLowerCase()
+    .replace(/ /g, '-')
+    .replace(/[^\w-]+/g, '')
+  const url = `www.matthewmercuri.com/blog/post/${slug}`
   return (
     <div className={styles.share}>
       <LinkedinShareButton url={url}>
@@ -20,7 +23,7 @@ export default function Share ({ post }) {
       </LinkedinShareButton>
       <RedditShareButton
         url={url}
-        title={post.fields.blogTitle}
+        title={data.title}
         windowWidth={660}
         windowHeight={460}
       >
@@ -28,14 +31,14 @@ export default function Share ({ post }) {
       </RedditShareButton>
       <FacebookShareButton
         url={url}
-        quote={post.fields.blogTitle}
+        quote={data.title}
         hashtag='#blog'
       >
         <FacebookIcon size={32} round />
       </FacebookShareButton>
       <TwitterShareButton
         url={url}
-        title={post.fields.blogTitle}
+        title={data.title}
       >
         <TwitterIcon size={32} round />
       </TwitterShareButton>

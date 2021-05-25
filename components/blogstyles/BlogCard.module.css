@@ -1,0 +1,25 @@
+.blogcard {
+    display: flex;
+    width: 70%;
+    margin: 15px 0px;
+}
+
+.blogcard h2 {
+    color: #0D21A1;
+}
+
+.blogcard a {
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 1250px) {
+    .blogcard {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    .blogcard {
+        width: 100%;
+    }
+}
