@@ -9,7 +9,6 @@ export default function CustomImage ({ src, alt, width, height }) {
               display: block;
               margin: 0 auto;
           }
-
     `}</style>
     </div>
   )
