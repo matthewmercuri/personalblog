@@ -5,14 +5,14 @@ import { readdirSync, readFileSync } from 'fs'
 
 import BlogCard from '../../components/BlogCard'
 
-export default function blog ({ meta }) {
+export default function blog ({ sortedMeta }) {
   return (
     <div>
       <Head>
         <title>blog | matthew mercuri</title>
       </Head>
       <h1>Blog</h1>
-      {meta.map((metadata) =>
+      {sortedMeta.map((metadata) =>
         <BlogCard key={metadata.slug} path={metadata.slug} metadata={metadata} />)}
     </div>
   )
@@ -39,9 +39,11 @@ export const getStaticProps = async ({ params }) => {
     }
   ))
 
+  const sortedMeta = meta.sort((a, b) => new Date(b.date) - new Date(a.date))
+
   return {
     props: {
-      meta
+      sortedMeta
     }
   }
 }
