@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default function customImage ({ src, alt, width, height }) {
+export default function CustomImage ({ src, alt, width, height }) {
   return (
     <div className='postimage'>
       <Image src={src} alt={alt} width={width} height={height} />

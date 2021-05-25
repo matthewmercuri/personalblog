@@ -1,14 +1,14 @@
 import { MDXRemote } from 'next-mdx-remote'
 import Image from 'next/image'
-import customImage from './customImage'
+import CustomImage from './CustomImage'
 import Math from './Math'
 import Link from 'next/link'
 import Share from './Share'
-import blockCode from './blockCode'
+import BlockCode from './BlockCode'
 
 import styles from './blogstyles/Post.module.css'
 
-const components = { Image, Link, customImage, Math, code: blockCode }
+const components = { Image, Link, CustomImage, Math, code: BlockCode }
 
 export default function Post ({ source, frontMatter }) {
   return (
