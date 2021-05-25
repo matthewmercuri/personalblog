@@ -2,7 +2,7 @@
 title: Explaining fundamental financial risk measures - Value at Risk (VaR)
 description: In finance, mathematics is primarily employed to describe returns. From this core concept, we can use math to understand losses. One of the most well-known measures is the so-called value at risk (VaR).
 author: Matthew Mercuri
-date: 14-05-2021
+date: '2021-05-14'
 category: Quantitative Finance
 featureImageName: varintro.png
 ---
@@ -27,8 +27,6 @@ With this fact in mind, there are many methods that people use to calculate the 
 Finally, I will show how we can program this and make it useful to us. What follows is a python script that calculates the 1% and 5% VaR of a  portfolio. In this example, the portfolio just holds one share of Apple (AAPL) and one share of Microsoft (MSFT).
 
 What the script does is first read the returns of the prices of individual assets. Then it combines them and calculates a return series (stored in a pandas dataframe). The return series is the daily logarithmic return of the portfolio. Note, even here we have some discretion to use log returns instead of percent returns or dollar change. You might often see people use log returns as they are easier to manipulate mathematically in many cases. This portfolio dataframe then gets inputted into the VaR function which then outputs the VaR of the portfolio. The function is programmed in such a way that should be agnostic towards any portfolio so long as you pass a similar dataframe.
-
-<script src="https://gist.github.com/matthewmercuri/96e725463b78523393651196210dc467.js"></script>
 
 ```python
 import numpy as np
