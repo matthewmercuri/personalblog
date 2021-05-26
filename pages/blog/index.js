@@ -10,6 +10,10 @@ export default function blog ({ sortedMeta }) {
     <div>
       <Head>
         <title>blog | matthew mercuri</title>
+        <meta property='og:site_name' content='Matthew Mercuri' />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content='Blog | Matthew Mercuri' />
+        <meta property='og:description' content='Blog posts' />
       </Head>
       <h1>Blog</h1>
       {sortedMeta.map((metadata) =>
