@@ -40,25 +40,16 @@
         width: 75%;
     }
 
-    .feat {
-        width: 70%;
-    }
-
-    .feat img {
+    .post img {
         width: 70%;
     }
 }
 
 @media only screen and (max-width: 1000px) {
-    .feat {
-        width: 80%;
-    }
-
-    .feat img {
+    .post img {
         width: 80%;
     }
 }
-
 
 @media only screen and (max-width: 750px) {
     .post {
@@ -69,11 +60,7 @@
         font-size: 1.75rem;
     }
 
-    .feat {
-        width: 95%;
-    }
-
-    .feat img{
+    .post img {
         width: 95%;
     }
 }

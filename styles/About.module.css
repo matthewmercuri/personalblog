@@ -42,20 +42,19 @@
 .quot2 {
     height: 50px;
     display: block;
-    margin: 0 0 0 auto;
+    margin: 0.5rem 0 0 auto;
     opacity: 0.3;
     transform: scaleX(-1) scaleY(-1);
 }
 
 .sig {
     margin-top: 2rem;
-    margin-right: 5rem;
     text-align: right;
 }
 
 @media only screen and (max-width: 1250px) {
     .about {
-        width: 80%;
+        width: 85%;
     }
 }
 
@@ -63,5 +62,22 @@
 @media only screen and (max-width: 750px) {
     .about {
         width: 100%;
+    }
+
+    .about p {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        line-height: 1.45;
+    }
+
+    .sig {
+        display: block;
+        /* margin-top: 3rem; */
+        text-align: right;
+        margin: 2rem 0 0 auto;
+    }
+
+    .quot1, .quot2 {
+        height: 30px;
     }
 }

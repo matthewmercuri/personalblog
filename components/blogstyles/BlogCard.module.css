@@ -37,7 +37,7 @@
 
 .readMore {
     height: 40px;
-    width: 90px;
+    width: 110px;
     background-color: #011638;
     display: flex;
     justify-content: center;
@@ -106,7 +106,6 @@
         align-items: center;
         /* background-color: #2bbe92; */
         background-color: #011638;
-        margin: 10px 0px;
         border-radius: 0px;
     }
 
