@@ -10,6 +10,15 @@ export default function PostPage ({ source, frontMatter }) {
     <>
       <Head>
         <title>{frontMatter.title} | matthew mercuri</title>
+        <meta property='og:site_name' content='Matthew Mercuri' />
+        <meta property='og:type' content='article' />
+        <meta property='og:title' content={frontMatter.title} />
+        <meta property='og:description' content={frontMatter.description} />
+        <meta property="article:publisher" content="https://www.matthewmercuri.com" />
+        <meta property="article:tag" content={frontMatter.category} />
+        <meta property='og:image' content={`/public/featimgs/${frontMatter.featureImageName}`} />
+        <meta property='og:url' content={`https://www.matthewmercuri.com/blog/post/${frontMatter.slug}`} />
+        <meta name='twitter:card' content='summary_large_image' />
       </Head>
       <div>
         <Post source={source} frontMatter={frontMatter} />
