@@ -10,13 +10,13 @@ export default function ContactForm () {
           <label>Don’t fill this out if you’re human: <input name='bot-field' /></label>
         </p>
         <p>
-          <label>Your Name: <input type='text' name='senderName' placeholder='name' maxLength='35' required /></label>
+          <label>Your Name: <input type='text' id='senderName' name='senderName' placeholder='name' maxLength='35' required /></label>
         </p>
         <p>
-          <label>Your Email: <input type='email' name='senderEmail' placeholder='email' maxLength='35' required /></label>
+          <label>Your Email: <input type='email' id='senderEmail' name='senderEmail' placeholder='email' maxLength='35' required /></label>
         </p>
         <p>
-          <label>Message: <textarea name='message' placeholder='type your message here...' maxLength='750' required /></label>
+          <label>Message: <textarea id='message' name='message' placeholder='type your message here...' maxLength='750' required /></label>
         </p>
         <div data-netlify-recaptcha='true' />
         <p>
