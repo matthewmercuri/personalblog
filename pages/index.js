@@ -10,7 +10,7 @@ export default function Home ({ posts }) {
         <meta property='og:title' content='Matthew Mercuri - Quantitative Finance, Data Science, and Math' />
         <meta property='og:description' content='My work involving finance, data science, mathematics, and anything else I find interesting' />
         <meta property='og:type' content='website' />
-        {/* <meta property='og:image' content='/static/website-social-card-44070c4a901df708aa1563ac4bbe595a.jpg' /> */}
+        <meta property='og:image' content='/public/ogimage.png' />
         <meta property='og:url' content='https://www.matthewmercuri.com' />
       </Head>
       <Welcome />
