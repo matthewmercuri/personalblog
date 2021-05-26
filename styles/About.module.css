@@ -11,8 +11,8 @@
     width: 75%;
 }
 
-.about img {
-    height: 40px;
+.aboutSocial {
+    height: 50px;
     margin: 15px 10px 0px 0px
 }
 
@@ -21,10 +21,44 @@
 }
 
 .disclaimer {
-    margin-top: 50px;
+    margin-top: 100px;
     font-size: 0.8rem;
     font-weight: bold;
 }
+
+.about p {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    line-height: 1.45;
+}
+
+.quot1 {
+    margin-top: 1rem;
+    height: 50px;
+    opacity: 0.3;
+    text-align: left;
+}
+
+.quot2 {
+    height: 50px;
+    display: block;
+    margin: 0 0 0 auto;
+    opacity: 0.3;
+    transform: scaleX(-1) scaleY(-1);
+}
+
+.sig {
+    margin-top: 2rem;
+    margin-right: 5rem;
+    text-align: right;
+}
+
+@media only screen and (max-width: 1250px) {
+    .about {
+        width: 80%;
+    }
+}
+
 
 @media only screen and (max-width: 750px) {
     .about {

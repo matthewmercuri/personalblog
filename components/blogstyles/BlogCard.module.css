@@ -1,25 +1,125 @@
 .blogcard {
     display: flex;
-    width: 70%;
+    width: 850px;
+    height: 250px;
     margin: 15px 0px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
-.blogcard h2 {
-    color: #0D21A1;
+.blogcard h1 {
+    color: black;
+    font-weight: normal;
+    font-size: 25px;
+    text-align: center;
 }
 
 .blogcard a {
     text-decoration: none;
 }
 
+.blogcard img {
+    height: 250px;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    width: 500px;
+    justify-content: space-around;
+    align-items: center;
+    text-overflow: ellipsis;
+    padding: 10px 20px;
+}
+
+.readMore {
+    height: 40px;
+    width: 90px;
+    background-color: #011638;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.readMore:hover {
+    background-color: #2bbe92;
+}
+
+.info p {
+    font-size: 12px;
+    text-align: center;
+    text-transform: lowercase;
+    letter-spacing: 2px;
+    margin-top: 0px;
+}
+
+.blogAccent {
+    display: flex;
+    flex-direction: column;
+}
+
+.accent {
+    width: 175px;
+    background-color: #2bbe92;
+    height: 3px;
+    margin-top: 8px;
+}
+
 @media only screen and (max-width: 1250px) {
+
+    .info {
+        width: 500px;
+    }
+
+
+    .blogcard img {
+        height: 250px;
+    }
+
+}
+
+@media only screen and (max-width: 1000px) {
     .blogcard {
-        width: 80%;
+        width: 100%;
+    }
+
+    .blogcard h1 {
+        font-size: 20px;
     }
 }
 
 @media only screen and (max-width: 750px) {
+
     .blogcard {
+        flex-direction: column;
+        max-height: 425px;
+        height: 80%;
         width: 100%;
+        align-items: center;
+        /* background-color: #2bbe92; */
+        background-color: #011638;
+        margin: 10px 0px;
+        border-radius: 0px;
+    }
+
+    /* weird bg colour border issue on small screens (iPhone 5) */
+    .blogcard img {
+        border-radius: 0px;
+        /* may need to change to contain */
+        object-fit: scale-down;
+        width: 100%;
+    }
+    
+    .info {
+        width: 100%;
+        background-color: white;
     }
 }
