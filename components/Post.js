@@ -13,6 +13,7 @@ export default function Post ({ source, frontMatter }) {
     <div className={styles.post}>
       <Share data={frontMatter} />
       <h1>{frontMatter.title}</h1>
+      <img className={styles.feat} src={`/featimgs/${frontMatter.featureImageName}`} alt='featured image' />
       <MDXRemote {...source} components={components} />
     </div>
   )
