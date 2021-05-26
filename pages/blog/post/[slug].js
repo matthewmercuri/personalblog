@@ -17,7 +17,7 @@ export default function PostPage ({ source, frontMatter }) {
         <meta name='description' content={frontMatter.description} />
         <meta property='article:publisher' content='https://www.matthewmercuri.com' />
         <meta property='article:tag' content={frontMatter.category} />
-        <meta property='og:image' content='/ogimage.png' />
+        <meta property='og:image' content='https://www.matthewmercuri.com/ogimage.png' />
         <meta property='og:url' content={`https://www.matthewmercuri.com/blog/post/${frontMatter.slug}`} />
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
