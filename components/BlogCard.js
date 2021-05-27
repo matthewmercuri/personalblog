@@ -4,7 +4,7 @@ import styles from './blogstyles/BlogCard.module.css'
 export default function BlogCard ({ path, metadata }) {
   return (
     <div className={styles.blogcard}>
-      <img src={`/featimgs/${metadata.featureImageName}`} alt='blog post featured image' />
+      <Link href={`/blog/post/${metadata.slug}`}><img src={`/featimgs/${metadata.featureImageName}`} alt='blog post featured image' /></Link>
       <div className={styles.info}>
         <div className={styles.blogAccent}>
           <p>{metadata.category}</p>
