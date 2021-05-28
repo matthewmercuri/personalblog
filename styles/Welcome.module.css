@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 300px;
+    margin: 30px 0;
 }
 
 .welcome h1 {
@@ -29,7 +30,18 @@
 
 @media only screen and (max-width: 1250px) {
     .welcome h3 {
+        width: 80%;
+        font-size: 18px;
+    }
+
+    .welcome h1 {
+        font-size: 55px;
         width: 50%;
+    }
+
+    .welcome {
+        height: 270px;
+        margin: 15px 0;
     }
 }
 
@@ -45,5 +57,6 @@
 
     .welcome {
         height: 250px;
+        margin: 0;
     }
 }
