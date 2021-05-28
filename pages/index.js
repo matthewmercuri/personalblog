@@ -4,9 +4,7 @@ import matter from 'gray-matter'
 import { readdirSync, readFileSync } from 'fs'
 
 import Welcome from '../components/Welcome'
-import BlogCard from '../components/BlogCard'
-
-import styles from '../styles/index.module.css'
+import RecentPosts from '../components/RecentPosts'
 
 export default function Home ({ sortedMeta }) {
   return (
@@ -21,12 +19,8 @@ export default function Home ({ sortedMeta }) {
         <meta property='og:image' content='https://www.matthewmercuri.com/ogimage.png' />
         <meta property='og:url' content='https://www.matthewmercuri.com' />
       </Head>
-      <div>
-        <Welcome />
-        <h1 className={styles.recentHead}>Recent Posts</h1>
-        {sortedMeta.map((metadata) =>
-          <BlogCard key={metadata.slug} path={metadata.slug} metadata={metadata} />)}
-      </div>
+      <Welcome />
+      <RecentPosts sortedMeta={sortedMeta} />
     </>
   )
 }

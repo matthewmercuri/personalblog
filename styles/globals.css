@@ -22,3 +22,9 @@ h1 {
 p {
   margin-top: 18px;
 }
+
+@media only screen and (max-width: 750px) {
+  h1 {
+      font-size: 2rem;
+  }
+}

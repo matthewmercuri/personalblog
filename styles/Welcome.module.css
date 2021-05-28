@@ -1,33 +1,49 @@
 .welcome {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
 }
 
 .welcome h1 {
-    font-size: 2.5rem;
+    color: #0D21A1;
+    font-size: 60px;
 }
+
 
 .welcome h3 {
-    font-size: 1.25rem;
-    color: #0D21A1;
-    margin-top: 10px;
+    text-transform: uppercase;
+    width: 40%;
+    max-width: 525px;
 }
 
-.welcome h5 {
-    font-weight: normal;
-    font-size: 1.1rem;
-    line-height: 1.45;
-    width: 60%;
-    margin-top: 10px;
+.name {
+    line-height: 1.0;
 }
+
 
 .socials img {
     height: 40px;
     margin: 15px 10px 0px 0px
 }
 
+@media only screen and (max-width: 1250px) {
+    .welcome h3 {
+        width: 50%;
+    }
+}
+
 @media only screen and (max-width: 750px) {
-    .welcome h5 {
-        width: 100%;
+    .welcome h3 {
+        width: 80%;
+        font-size: 15px;
+    }
+
+    .welcome h1 {
+        font-size: 50px;
+    }
+
+    .welcome {
+        height: 250px;
     }
 }
