@@ -1,0 +1,124 @@
+---
+title: Predicting the 2021 PGA Championship Using a Monte Carlo Simulation
+description: Recently, a major golf tournament called the PGA Championship concluded. Astoundingly, pro golf has crowned its oldest major winning player, Phil Mickelson. Prior to the tournament, partly motivated by my participation in a pool, I attempted to predict the tournament outcome.
+author: Matthew Mercuri
+date: '2021-05-25'
+category: Data Science
+featureImageName: 2021pgachamp.png
+---
+Recently, a major golf tournament called the PGA Championship concluded. Astoundingly, pro golf has crowned its oldest major winning player, [Phil Mickelson](https://en.wikipedia.org/wiki/Phil_Mickelson). Prior to the tournament, partly motivated by my participation in a pool, I attempted to predict the tournament outcome. This write-up is more of an explanation and walkthrough of my process. Nevertheless, the code can be found here.
+
+Now, this golf tournament had 156 players initially in the field. In light of this, it is extremely difficult to accurately predict a winner. Golf also has a tremendous amount of variability in any given player's scores. I thought a more attainable goal was to try to figure out where players were most likely to place amongst their colleagues. Sure, I'd see who the model thought was going to win, but it should not be interpreted that the model's projected winner will be the actual winner.
+
+I gave myself a single day: the day just before the tournament started. The tournament ran from May 20-23. Four rounds, with players needing to make a "cut" after their first two. Like any data science project, the first step was to think about the best way to generate predictions and develop a game plan.
+
+
+Methodology and Data
+--------------------
+
+### Deriving the Core Metric
+
+A PGA golf tournament is a competition amongst the best golfers from around the world. As such, a strong methodology would have to include some way to measure how a player performs relative to their competition. I figured a good way to do this is as follows:
+
+1.  Gather a player's recent round score (total strokes)
+
+2.  Measure the average score of the other players that played (average total strokes of field)
+
+3.  Subtract the average total strokes from the player's total strokes to get a measure of how the player performed relative to the field
+
+For example:
+
+1.  Tiger Woods scored a 67
+
+2.  The average player's score that day was a 72
+
+3.  Tiger Woods had a score of -5 relative to the field
+
+For any given player, we could take an arbitrary amount of past rounds to use as an input to our model. I happened to choose 40 rounds, though I can see a good argument as to why it may be better to choose only more recent rounds.
+
+
+### Data Source
+
+Usually, it is tough to find good data that can lead to accurate predictions. Fortunately, I was able to find the pertinent data to construct my metric from [Advanced Sports Analytics](https://www.advancedsportsanalytics.com/pga-raw-data).
+
+
+### The Monte Carlo Method
+
+Now for the model itself. I thought a good solution was to use the Monte Carlo method and simulate "tournaments."
+
+The Monte Carlo method is a catch-all term for algorithms that use randomness to actually solve complex problems with many inputs or parameters. The method relies on drawing from a random sample to resolve uncertainty around complex problems. The Monte Carlo method is used across disciplines like physics, biology, and finance. An elegant example of the Monte Carlo method in action, is using it to calculate the [value of pi](https://en.wikipedia.org/wiki/Monte_Carlo_method#Overview).
+
+I believe this problem suits the Monte Carlo method well as there is a tremendous amount of uncertainty with its inputs. The final position of each player depends on the positions of all other players. The Monte Carlo method allows us to feasibly deal with this.
+
+For my purposes, I thought the best way to use the Monte Carlo method was to simulate scores relative to the field for each player (using the data described above). I do this 4 times for each player in the tournament (their four rounds) and sum the results. This gives me a random score relative to the field for the player. I do this for all the players and then rank all these scores (least to greatest). So the player at the top is the player who outperformed the field the most. In essence, they were simulated as the winner. This would constitute a "simulated tournament." Of course, the Monte Carlo method works by doing this many, many times. I arbitrarily chose to run the simulation 100,000 times to try to "converge" on a representative prediction.
+
+But how did I choose to simulate their scores? This is again where I chose to make some assumptions. The biggest one, is that a player's score relative to the field (as derived above) comes from a normal distribution. I used each player's input data of scores relative to the field and found their mean and standard deviation. I then drew the metric from a normal distribution with the aforementioned mean and standard deviation. This is a common assumption when dealing with data where we don't know the identity of the distribution the data was sampled from. There are methods that can be used to test if the data is likely from a certain distribution. Perhaps next time I will do that before proceeding to the simulation. There are tonnes of things that can be applied to the Monte Carlo method in an effort to (hopefully) gain a better result. Given I only had a day, I decided to keep things simple.
+
+
+Results
+-------
+
+Once we have the results of the 100,000 simulations, the fun can really begin. The first thing I thought to do was find the average finishing position of each player, and then rank them. The top 25 after doing this looks like:
+
+| Player Name         | Avg Place | Avg Place Rank |
+|---------------------|:------------:|:----------------:|
+| Jordan Spieth       | 24.50305   | 1              |
+| Viktor Hovland      | 30.43183   | 2              |
+| Justin Thomas       | 30.77675   | 3              |
+| Daniel Berger       | 31.21769   | 4              |
+| Corey Conners       | 32.40734   | 5              |
+| Charley Hoffman     | 32.78941   | 6              |
+| Abraham Ancer       | 33.62396   | 7              |
+| Xander Schauffele   | 33.85829   | 8              |
+| Collin Morikawa     | 33.87578   | 9              |
+| Tony Finau          | 34.46566   | 10             |
+| Tyrrell Hatton      | 36.24489   | 11             |
+| Jon Rahm            | 36.39768   | 12             |
+| Patrick Cantlay     | 36.68377   | 13             |
+| Chris Kirk          | 36.71034   | 14             |
+| Bryson DeChambeau   | 36.9725    | 15             |
+| Cameron Tringale    | 37.70055   | 16             |
+| Patrick Reed        | 38.12312   | 17             |
+| Emiliano Grillo     | 38.49645   | 18             |
+| Matthew Fitzpatrick | 38.66213   | 19             |
+| Joaquin Niemann     | 38.74054   | 20             |
+| Webb Simpson        | 39.16836   | 21             |
+| Brian Harman        | 40.53283   | 22             |
+| Cameron Smith       | 40.83132   | 23             |
+| Will Zalatoris      | 41.10281   | 24             |
+| Max Homa            | 42.12405   | 25             |
+
+For reasons that I discussed in the first section, I did not feel it was wise to buy into the predictive power of this interpretation. I thought the two more interesting questions were:
+
+-   How often does each player come in first?
+
+-   How often does each player place inside the top 5?
+
+With these questions in mind, I generated this:
+
+| Player Name       | Win % | Win Dec | Top 5s | Top 5 % | Top 5 Dec |
+|-------------------|:-------:|:---------:|:--------:|:---------:|:-----------:|
+| Jordan Spieth     | 5.95  | 16.81   | 22864  | 22.86   | 4.37      |
+| Viktor Hovland    | 4.73  | 21.14   | 18073  | 18.07   | 5.53      |
+| Tyrrell Hatton    | 4.59  | 21.79   | 16176  | 16.18   | 6.18      |
+| Justin Thomas     | 4.49  | 22.27   | 17362  | 17.36   | 5.76      |
+| Collin Morikawa   | 4.33  | 23.09   | 16281  | 16.28   | 6.14      |
+| Sam Burns         | 4.08  | 24.51   | 12596  | 12.6    | 7.94      |
+| Charley Hoffman   | 3.92  | 25.51   | 15705  | 15.7    | 6.37      |
+| Bryson DeChambeau | 3.8   | 26.32   | 14314  | 14.31   | 6.99      |
+| Cameron Smith     | 3.73  | 26.81   | 13474  | 13.47   | 7.42      |
+| Patrick Cantlay   | 3.62  | 27.62   | 14205  | 14.21   | 7.04      |
+| Sungjae Im        | 3.11  | 32.15   | 10610  | 10.61   | 9.43      |
+| Emiliano Grillo   | 2.67  | 37.45   | 11788  | 11.79   | 8.48      |
+| Tony Finau        | 2.2   | 45.45   | 11505  | 11.5    | 8.7       |
+| Carlos Ortiz      | 2.1   | 47.62   | 7788   | 7.79    | 12.84     |
+| Matt Wallace      | 2.05  | 48.78   | 8605   | 8.6     | 11.63     |
+| Jon Rahm          | 1.94  | 51.55   | 10206  | 10.21   | 9.79      |
+| Rory McIlroy      | 1.78  | 56.18   | 8379   | 8.38    | 11.93     |
+| Max Homa          | 1.67  | 59.88   | 8505   | 8.51    | 11.75     |
+| Chris Kirk        | 1.66  | 60.24   | 9342   | 9.34    | 10.71     |
+| Keegan Bradley    | 1.47  | 68.03   | 6982   | 6.98    | 14.33     |
+| Scottie Scheffler | 1.43  | 69.93   | 7509   | 7.51    | 13.32     |
+| Patrick Reed      | 1.36  | 73.53   | 8240   | 8.24    | 12.14     |
+| Daniel Berger     | 1.3   | 76.92   | 9322   | 9.32    | 10.73     |
+| Xander Schauffele | 1.29  | 77.52   | 8758   | 8.76    | 11.42     |

@@ -4,14 +4,32 @@
     width: 66%;
 }
 
+.post ul {
+    padding-left: 2rem;
+    line-height: 1.05;
+}
+
+.post ol {
+    padding-left: 2rem;
+    margin-bottom: 0px;
+}
+
 .post h1 {
     color: #0d21a1;
+}
+
+.post h2 {
+    margin-top: 30px;
+}
+
+.post h3 {
+    margin-top: 15px;
 }
 
 .post p {
     font-size: 1rem;
     line-height: 1.75;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .feat {
@@ -26,6 +44,54 @@
     margin: 0 auto;
     width: 80%;
     margin-top: 15px;
+}
+
+.post table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    /* min-width: 400px; */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.post table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.post table th,
+.post table td {
+    padding: 12px 15px;
+}
+
+.post table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.post table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.post table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.post table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.post table tbody {
+    display: table;
+    width: 100%;
+}
+
+.post table thead {
+    display: table;
+    width: 100%;
 }
 
 @media only screen and (max-width: 1500px) {
