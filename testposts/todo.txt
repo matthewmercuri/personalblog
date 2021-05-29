@@ -1,0 +1,5 @@
+- fix blog card featured image background issue
+- fix ul and ol line height
+- finish second post
+- fix form
+- add image to hero
