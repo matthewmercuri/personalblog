@@ -3,7 +3,7 @@ import styles from '../styles/Welcome.module.css'
 export default function Welcome () {
   return (
     <div className={styles.welcome}>
-      <h3>I'M</h3>
+      <h3>HI! I'M</h3>
       <div className={styles.name}>
         <h1>Matthew</h1>
         <h1>Mercuri</h1>
