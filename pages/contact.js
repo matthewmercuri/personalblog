@@ -9,8 +9,8 @@ export default function contact () {
         <title>contact | matthew mercuri</title>
       </Head>
       <h1>Contact</h1>
-      {/* <ContactForm /> */}
-      <TestContact />
+      <ContactForm />
+      {/* <TestContact /> */}
     </div>
   )
 }
