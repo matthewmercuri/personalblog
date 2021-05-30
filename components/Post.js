@@ -15,6 +15,7 @@ export default function Post ({ source, frontMatter }) {
       <Share data={frontMatter} />
       <h1>{frontMatter.title}</h1>
       <PostInfo date={frontMatter.date} category={frontMatter.category} />
+      {/* featured image should be 800*600 */}
       <img src={`/featimgs/${frontMatter.featureImageName}`} className={styles.featureImage} alt='featured image' />
       <div className={styles.postContent}>
         <MDXRemote {...source} components={components} />
