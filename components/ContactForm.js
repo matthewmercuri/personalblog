@@ -20,7 +20,7 @@ export default function ContactForm () {
         </p>
         {/* <div data-netlify-recaptcha='true' /> */}
         <p>
-          <button type='submit'>Send</button>
+          <button name='submit' type='submit'>Send</button>
         </p>
       </form>
     </div>

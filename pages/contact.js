@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import ContactForm from '../components/ContactForm'
+import TestContact from '../components/TestContact'
 
 export default function contact () {
   return (
@@ -8,7 +9,8 @@ export default function contact () {
         <title>contact | matthew mercuri</title>
       </Head>
       <h1>Contact</h1>
-      <ContactForm />
+      {/* <ContactForm /> */}
+      <TestContact />
     </div>
   )
 }
