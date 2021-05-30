@@ -9,7 +9,7 @@ export default function Math ({ mathInput }) {
       <style jsx>{`
           .math {
               text-align: center;
-              margin: 10px 0px 0px 10px
+              margin: 10px 0px 20px 10px
             }
         `}
       </style>

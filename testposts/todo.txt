@@ -1,4 +1,4 @@
-- fix blog card featured image background issue
+- fix blog card featured image background issue (maybe make max card width featured image width)
 - fix ul and ol line height
 - finish second post
 - fix form

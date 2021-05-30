@@ -1,0 +1,42 @@
+.info {
+    display: flex;
+    margin: 10px 0
+}
+
+.info img {
+    width: 20px;
+    margin-right: 4px;
+}
+
+.blockDate {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.blockDate p {
+    font-size: 12px;
+    background-color: rgb(219, 218, 218);
+    padding: 2px 5px;
+    border-radius: 2px;
+}
+
+.blockCat{
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.blockCat p {
+    font-size: 12px;
+    background-color: rgb(219, 218, 218);
+    padding: 2px 5px;
+    border-radius: 2px;
+}
+
+@media only screen and (max-width: 750px) {
+    .blockCat {
+        display: none;
+    }
+}
+

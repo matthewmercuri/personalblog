@@ -5,6 +5,7 @@ import Share from './Share'
 import CodeBlock from './CodeBlock'
 
 import styles from './blogstyles/Post.module.css'
+import PostInfo from './PostInfo'
 
 const components = { Link, Math, code: CodeBlock }
 
@@ -13,8 +14,11 @@ export default function Post ({ source, frontMatter }) {
     <div className={styles.post}>
       <Share data={frontMatter} />
       <h1>{frontMatter.title}</h1>
-      <img src={`/featimgs/${frontMatter.featureImageName}`} alt='featured image' />
-      <MDXRemote {...source} components={components} />
+      <PostInfo date={frontMatter.date} category={frontMatter.category} />
+      <img src={`/featimgs/${frontMatter.featureImageName}`} className={styles.featureImage} alt='featured image' />
+      <div className={styles.postContent}>
+        <MDXRemote {...source} components={components} />
+      </div>
     </div>
   )
 }

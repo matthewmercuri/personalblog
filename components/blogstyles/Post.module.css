@@ -4,47 +4,50 @@
     width: 66%;
 }
 
-.post ul {
-    padding-left: 2rem;
-}
-
-.post ol {
-    padding-left: 2rem;
-}
-
 .post h1 {
     color: #0d21a1;
 }
 
-.post h2 {
+.post a {
+    color: #0d21a1;
+}
+
+.featureImage {
+    max-width: 800px;
+    display: block;
+    margin: 10px auto;
+    width: 80%;
+}
+
+.postContent ul {
+    padding-left: 2rem;
+}
+
+.postContent ol {
+    padding-left: 2rem;
+}
+
+.postContent h2 {
     margin-top: 30px;
 }
 
-.post h3 {
+.postContent h3 {
     margin-top: 15px;
 }
 
-.post p {
+.postContent p {
     font-size: 1rem;
     line-height: 1.75;
     margin-bottom: 20px;
 }
 
-.feat {
+.postContent img {
     display: block;
     margin: 0 auto;
     width: 80%;
-    margin-top: 15px;
 }
 
-.post img {
-    display: block;
-    margin: 0 auto;
-    width: 80%;
-    margin-top: 15px;
-}
-
-.post table {
+.postContent table {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
@@ -52,26 +55,26 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.post table thead tr {
+.postContent table thead tr {
     background-color: #0d21a1;
     color: #ffffff;
     text-align: left;
 }
 
-.post table th,
-.post table td {
+.postContent table th,
+.postContent table td {
     padding: 12px 15px;
 }
 
-.post table tbody tr {
+.postContent table tbody tr {
     border-bottom: 1px solid #dddddd;
 }
 
-.post table tbody tr:nth-of-type(even) {
+.postContent table tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
 
-.post table tbody tr:last-of-type {
+.postContent table tbody tr:last-of-type {
     border-bottom: 2px solid #0d21a1;
 }
 
@@ -88,13 +91,17 @@
         width: 75%;
     }
 
-    .post img {
+    .postContent img {
         width: 70%;
+    }
+
+    .featureImage {
+        max-width: 500px;
     }
 }
 
 @media only screen and (max-width: 1000px) {
-    .post img {
+    .postContent img {
         width: 80%;
     }
 }
@@ -108,22 +115,22 @@
         font-size: 1.75rem;
     }
 
-    .post img {
+    .postContent img {
         width: 95%;
     }
 
-    .post table {
+    .postContent table {
         margin: 10px 0;
         font-size: 0.8em;
     }
 
-    .post h2 {
+    .postContent h2 {
         margin-top: 10px;
     }
 }
 
 @media only screen and (max-width: 450px) {
-    .post table {
+    .postContent table {
         display: block;
         table-layout: fixed;
         overflow-x: auto;
