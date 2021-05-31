@@ -101,14 +101,12 @@
 
     .blogcard {
         flex-direction: column;
-        max-height: 425px;
-        height: 80%;
-        width: 100%;
+        min-height: 425px;
         align-items: center;
         /* background-color: #2bbe92; */
         background-color: #011638;
         border-radius: 0px;
-        margin-bottom: 55px;
+        /* margin-bottom: 55px; */
     }
 
     /* weird bg colour border issue on small screens (iPhone 5) */
@@ -121,6 +119,7 @@
     .info {
         width: 100%;
         background-color: white;
+        /* height: 360px; */
     }
 }
 
