@@ -15,7 +15,7 @@ export default function Nav () {
           <li><Link href='/'><a>home</a></Link></li>
           <li><Link href='/blog'><a>blog</a></Link></li>
           <li><Link href='/about'><a>about</a></Link></li>
-          <li><Link href='/contact'><a>contact</a></Link></li>
+          <li className={styles.contact}><Link href='/contact'><a>contact</a></Link></li>
         </ul>
       </div>
       <div className={click ? `${styles.mobileNavOpen} ${styles.mobileNav}` : styles.mobileNav}>
