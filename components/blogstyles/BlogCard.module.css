@@ -1,7 +1,7 @@
 .blogcard {
     display: flex;
     width: 850px;
-    min-height: 250px;
+    height: 250px;
     margin: 25px 0px;
     background-color: white;
     border-radius: 5px;
@@ -32,7 +32,6 @@
     width: 500px;
     justify-content: space-around;
     align-items: center;
-    text-overflow: ellipsis;
     padding: 10px 20px;
 }
 
@@ -47,7 +46,6 @@
     color: white;
     border-radius: 2px;
     cursor: pointer;
-    margin: 0 auto;
 }
 
 .readMore:hover {
@@ -75,16 +73,9 @@
 }
 
 @media only screen and (max-width: 1250px) {
-
     .info {
         width: 500px;
     }
-
-
-    .blogcard img {
-        height: 250px;
-    }
-
 }
 
 @media only screen and (max-width: 1000px) {
@@ -101,24 +92,26 @@
 
     .blogcard {
         flex-direction: column;
-        min-height: 425px;
-        max-height: 425px;
+        height: 450px;
+        max-height: 450px;
         align-items: center;
         /* background-color: #2bbe92; */
         background-color: #011638;
         border-radius: 0px;
-        margin-bottom: 55px;
+        margin-bottom: 40px;
     }
 
     /* weird bg colour border issue on small screens (iPhone 5) */
     .blogcard img {
         border-radius: 0px;
-        object-fit: scale-down;
+        object-fit: cover;
         width: 100%;
     }
     
     .info {
         width: 100%;
+        height: 250px;
+        max-height: 250px;
         background-color: white;
         /* height: 360px; */
     }
