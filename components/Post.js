@@ -4,8 +4,10 @@ import Link from 'next/link'
 import Share from './Share'
 import CodeBlock from './CodeBlock'
 
-import styles from './blogstyles/Post.module.css'
 import PostInfo from './PostInfo'
+import BackToBlog from './BackToBlog'
+
+import styles from './blogstyles/Post.module.css'
 
 const components = { Link, Math, code: CodeBlock }
 
@@ -20,6 +22,7 @@ export default function Post ({ source, frontMatter }) {
       <div className={styles.postContent}>
         <MDXRemote {...source} components={components} />
       </div>
+      <BackToBlog />
     </div>
   )
 }

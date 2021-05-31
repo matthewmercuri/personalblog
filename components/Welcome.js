@@ -16,7 +16,7 @@ export default function Welcome () {
         </div>
       </div>
       <div className={styles.rightPane}>
-        <img src='/hero/rocketv2.svg' alt='a volatility surface' />
+        <img src='/hero/rocketv2.svg' alt='rocket art' />
       </div>
     </div>
   )

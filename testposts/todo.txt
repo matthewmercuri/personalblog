@@ -1,3 +1,5 @@
 - fix ul and ol line height
 - finish second post
 - add recaptcha to form
+- add projects page
+- make contact nav link noticeable
