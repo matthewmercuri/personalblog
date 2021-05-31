@@ -1,9 +1,35 @@
 .welcome {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 300px;
+}
+
+.leftPane {
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 300px;
     margin: 30px 0;
+    min-width: 50%;
+    min-height: 300px;
+
+}
+
+.rightPane {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* height: 100%; */
+    /* padding: 30px 0; */
+    width: 50%;
+}
+
+.rightPane img {
+    /* margin-left: auto;
+    margin-right: auto; */
+    /* object-fit: cover; */
+    width: 400px;
 }
 
 .welcome h1 {
@@ -14,7 +40,7 @@
 
 .welcome h3 {
     text-transform: uppercase;
-    width: 40%;
+    width: 80%;
     max-width: 525px;
 }
 
@@ -26,6 +52,12 @@
 .socials img {
     height: 40px;
     margin: 15px 10px 0px 0px
+}
+
+@media only screen and (max-width: 1500px) {
+    .rightPane img {
+        width: 350px;
+    }
 }
 
 @media only screen and (max-width: 1250px) {
@@ -43,6 +75,10 @@
         height: 270px;
         margin: 15px 0;
     }
+
+    .rightPane img {
+        width: 300px;
+    }
 }
 
 @media only screen and (max-width: 750px) {
@@ -58,5 +94,9 @@
     .welcome {
         height: 250px;
         margin: 0;
+    }
+
+    .rightPane {
+        display: none;
     }
 }
