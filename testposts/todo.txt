@@ -1,9 +1,8 @@
 ISSUES
 - fix ul and ol line height
 - navbar on mobile allows scroll
-- finish second post
 
 TODO
+- finish second post
 - add recaptcha to form
 - add projects page
-- make contact nav link noticeable

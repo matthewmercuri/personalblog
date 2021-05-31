@@ -34,7 +34,7 @@
     /* font-weight: 600; */
     color: white;
     font-size: 1.1rem;
-    padding: 6px 12px;
+    padding: 5px 12px;
     border-radius: 6px;
 }
 
@@ -117,9 +117,19 @@
         display: none;
     }
 
-    .mobileNav a {
+    .mobileNav li:not(:last-of-type) a {
         text-decoration: none;
         color: white;
+    }
+
+    .mobileNav li:last-of-type a {
+        text-decoration: none;
+        background-color: white;
+        color: black;
+        font-weight: bold;
+        font-size: 1.1rem;
+        padding: 5px 10px;
+        border-radius: 6px;
     }
 
     .mobileNav li {
