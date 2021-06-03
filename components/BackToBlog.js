@@ -4,7 +4,7 @@ export default function BackToBlog () {
   return (
     <div className='back'>
       <hr className='rule' />
-      <Link href='/blog'><p>Back to Blog</p></Link>
+      <Link href='/blog'><p>Back to blog</p></Link>
       <style jsx>{`
         .back {
             text-align: center;

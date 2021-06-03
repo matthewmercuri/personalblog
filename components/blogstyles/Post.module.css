@@ -29,10 +29,12 @@
 
 .postContent h2 {
     margin-top: 30px;
+    margin-bottom: 10px;
 }
 
 .postContent h3 {
     margin-top: 15px;
+    margin-bottom: 10px;
 }
 
 .postContent p {
@@ -49,10 +51,10 @@
 
 .postContent table {
     border-collapse: collapse;
-    margin: 25px 0;
     font-size: 0.9em;
     font-family: sans-serif;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin: 25px auto;
 }
 
 .postContent table thead tr {

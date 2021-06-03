@@ -54,6 +54,38 @@ For my purposes, I thought the best way to use the Monte Carlo method was to sim
 
 But how did I choose to simulate their scores? This is again where I chose to make some assumptions. The biggest one, is that a player's score relative to the field (as derived above) comes from a normal distribution. I used each player's input data of scores relative to the field and found their mean and standard deviation. I then drew the metric from a normal distribution with the aforementioned mean and standard deviation. This is a common assumption when dealing with data where we don't know the identity of the distribution the data was sampled from. There are methods that can be used to test if the data is likely from a certain distribution. Perhaps next time I will do that before proceeding to the simulation. There are tonnes of things that can be applied to the Monte Carlo method in an effort to (hopefully) gain a better result. Given I only had a day, I decided to keep things simple.
 
+### Main Logic (Code)
+
+Here you can see the main function that actually conducts the Monte Carlo simulation.
+
+```python
+def mc_sim():
+    _res_dfs = []
+    for i in range(SIMS):
+        scores = {}
+        for player in players:
+            p_df = df[df.index == player]
+            mu = p_df['mean'].iloc[0]
+            sigma = p_df['std'].iloc[0]
+            p_scores = np.random.normal(mu, sigma, size=4)
+
+            scores[player] = p_scores
+
+        _res_df = pd.DataFrame.from_dict(scores, orient='index')
+        _res_df['total'] = _res_df.sum(axis=1)
+        _res_df.sort_values(by='total', inplace=True)
+        _res_df['Rank'] = _res_df['total'].rank()
+        _res_dfs.append(_res_df['Rank'])
+        # print(_res_df)
+
+    res_df = pd.concat(_res_dfs, axis=1, join="inner")
+    res_df['TOTAL_Rank'] = res_df.sum(axis=1) / SIMS
+    res_df['TOTAL_Avg_Rank'] = res_df['TOTAL_Rank'].rank()
+    res_df.sort_values(by='TOTAL_Avg_Rank', inplace=True)
+    # res_df['TOTAL_Avg_Rank'].to_csv('results4.csv')
+    res_df.to_csv('resultsfull.csv')
+    print(res_df)
+```
 
 Results
 -------
