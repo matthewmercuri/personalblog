@@ -3,6 +3,6 @@ ISSUES
 - navbar on mobile allows scroll
 
 TODO
-- finish second post
 - add recaptcha to form
 - add projects page
+- add LICENSE
