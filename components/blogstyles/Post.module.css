@@ -21,10 +21,14 @@
 
 .postContent ul {
     padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.8;
 }
 
 .postContent ol {
     padding-left: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.8;
 }
 
 .postContent h2 {
@@ -33,7 +37,7 @@
 }
 
 .postContent h3 {
-    margin-top: 15px;
+    margin-top: 3rem;
     margin-bottom: 10px;
 }
 

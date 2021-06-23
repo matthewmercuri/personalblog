@@ -23,7 +23,7 @@ export default function BackToBlog () {
             height: 1px;
             background: #333;
             background-image: linear-gradient(to right, #ccc, #333, #ccc);
-            margin: 10px 0px
+            margin: 5rem 0 1rem 0 
         }
 
         @media only screen and (max-width: 750px) {
