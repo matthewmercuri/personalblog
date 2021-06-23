@@ -15,7 +15,7 @@ So clearly, the motivation behind ES is to understand more about large losses an
 ## Advantage Over VaR
 The main advantage of ES over VaR stems from the fact that ES conforms to the properties of what is known as a <b>coherent</b> risk measure. For a measure to be considered coherent, there are some mathematical properties that must hold true for it. If you are interested to see exactly how ES conforms to the properties of a coherent risk measure, please take a look at [this wiki page](https://en.wikipedia.org/wiki/Coherent_risk_measure). For now, it is important to note that VaR is not coherent because it does not obey the notion of sub-additivity. Namely, the VaR of a portfolio's holdings is not necessarily equal to the VaR of the entire portfolio.
 
-On the other hand, ES is sub-additive and conforms to the other necessary criteria. This means that it can be used to do things like [specify capital requirements for banks](https://en.wikipedia.org/wiki/Basel_Accords), and inform portfolio opimization techniques. Also, the direct interpretation of ES is a lot more useful to an investor.
+On the other hand, ES is sub-additive and conforms to the other necessary criteria. This means that it can be used to do things like [specify capital requirements for banks](https://en.wikipedia.org/wiki/Basel_Accords), and inform portfolio optimization techniques. Also, the direct interpretation of ES is a lot more useful to an investor.
 
 The illustration below offers a good visual representation of ES and how it compares to VaR. What you are seeing is the loss distribution of a portfolio. Losses increase as you go right along the x-axis. The right tail is what we are concerned with.
 
@@ -37,7 +37,7 @@ Note:
 ES can be read as the expected value of the random variable <b>X</b> when the VaR for that alpha is met. If you look online, you will see many more definitions of ES and VaR. I just prefer these as they are agnostic towards assuming any specific return (or loss) distribution of a portfolio.
 
 ## Putting ES to Use Through Code
-To make ES usefull to us, we will need to put it into code. Below I do exactly that. The exact procedure is as follows:
+To make ES useful to us, we will need to put it into code. Below I do exactly that. The exact procedure is as follows:
 1. Create a portfolio
 2. Calculate and show the loss distribution of the portfolio
 3. Find the VaR at the level of alpha we choose (95% and 99%)
@@ -47,7 +47,7 @@ To make ES usefull to us, we will need to put it into code. Below I do exactly t
 
 The method that I will employ here is the historical method. This assumes no <b>specific</b> distribution for the portfolio's returns. This has the advantage of not introducing modelling error when choosing an arbitrary return distribution. The major caveat to employing this method is that it is not entirely accurate when the return distribution is likely to change over time (which it most likely will). Different investors will have their own ways to model a portfolio's returns and thus calculate VaR and ES differently. I will definitely share more methods at a later time.
 
-With the historical method, we are going to use two years worth of data. Why? Again, this is a just a choice. Too much data and you are going to encorporate data that may not be relevant to the portfolio today. Too little, and the metrics will offer little insight. Two years seems like a decent enough balance, though it is not a sophisticated choice. The goal here is simply to demonstrate what ES is and how it can be used in practice.
+With the historical method, we are going to use two years worth of data. Why? Again, this is just a choice. Too much data and you are going to use data that may not be relevant to the portfolio today. Too little, and the metrics will offer little insight. Two years seems like a decent enough balance, though it is not a sophisticated choice. The goal here is simply to demonstrate what ES is and how it can be used in practice.
 
 ### Constructing the Portfolio
 
