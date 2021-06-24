@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.matthewmercuri.com/api/blog-sitemap
+Sitemap: https://www.matthewmercuri.com/sitemap.xml
